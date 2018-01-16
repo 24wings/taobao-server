@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 37.5px!important;
+        }
+
+        body {}
+    </style>
+    <style>
+        .logo {
+
+            width: 4.13333333rem;
+            height: 4.13333333rem;
+            /* background: url(https://gw.alicdn.com/tfs/TB1p.BGQXXXXXbFXFXXXXXXXXXX-160-160.png) no-repeat; */
+            background: lightgreen;
+            background-size: contain;
+            margin: 1.25333333rem auto 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo"></div>
+    <form id="loginForm" class="mlogin" action="/login" method="post">
+        <input name="_tb_token_" type="hidden" value="eeee738e75b4d">
+        <input type="hidden" id="J_Mparam" name="action" value="LoginAction">
+        <input type="hidden" name="event_submit_do_login" value="1">
+        <input type="hidden" name="TPL_redirect_url" value="https://ju.taobao.com/m/jusp/alone/detailwap/mtp.htm?item_id=562993553460&amp;_target=_blank&amp;spm=608.7719685.remaif1.1.724fc6df2R2NI6&amp;_target=_blank&amp;_force=wap&amp;item_id=562993553460&amp;bucket=8&amp;pageno=1&amp;impid=fqIjmh0n9Sh&amp;floorIndex=3&amp;is_jusp=1&amp;_target=_blank&amp;_format=true">
+        <input type="hidden" name="loginFrom" value="WAP_TAOBAO">
+        <input type="hidden" name="style" value="">
+        <input type="hidden" name="bind_token" value="">
+        <input type="hidden" name="assets_css" value="">
+        <input type="hidden" name="assets_js" value="">
+        <input type="hidden" name="ssottid" value="">
+        <input type="hidden" name="nv" value="false">
+        <input type="hidden" name="otherLoginUrl" value="https://login.m.taobao.com/msg_login.htm?redirectURL=https%3A%2F%2Fju.taobao.com%2Fm%2Fjusp%2Falone%2Fdetailwap%2Fmtp.htm%3Fitem_id%3D562993553460%26_target%3D_blank%26spm%3D608.7719685.remaif1.1.724fc6df2R2NI6%26_target%3D_blank%26_force%3Dwap%26item_id%3D562993553460%26bucket%3D8%26pageno%3D1%26impid%3DfqIjmh0n9Sh%26floorIndex%3D3%26is_jusp%3D1%26_target%3D_blank%26_format%3Dtrue">
+
+        <input type="hidden" id="J_Exponent" value="10001">
+        <input type="hidden" id="J_Module" value="98639b48645bdaadc930c1e2316b9d07223f3808e9192788a1e2183ff5a33f393ff51f9a6f65050600f4e77890c333c18ff2d5ca9e2259a1696aa4398c7ca809034911671ef06e760a12da4aa285fcd028edaa5e8e3a70d1fed92649ee7189ef0bec70ffa8e26ce57ede52d5593bc36c48abe16c50cc1fd7c1479e53cb0cde99">
+        <input type="hidden" name="TPL_timestamp" id="J_Timestamp" value="">
+        <input type="hidden" name="TPL_password2" id="password2">
+        <input type="hidden" name="page" id="page" value="loginV3">
+
+        <input type="hidden" id="J_NcoSig" name="ncoSig">
+        <input type="hidden" id="J_NcoSessionid" name="ncoSessionid">
+        <input type="hidden" id="J_NcoToken" name="ncoToken" value="f599b632a8a92dff6f70cfd1a351156311c78e66">
+
+
+        <div class="am-list">
+            <!-- 错误提示 -->
+            {%if error%}
+            <div class="am-list-item" style="color:red;    text-align: center;
+            border-bottom: none;">
+                {{error}}
+            </div>
+            {%endif%}
+            <div class="am-list-item">
+
+                <div class="am-list-control">
+                    <input type="text" class="am-input-required" name="phone" placeholder="手机号" value="" id="phone">
+                </div>
+                <div class="am-list-action">
+                    <i class="am-icon-clear"></i>
+                </div>
+            </div>
+            <div class="am-list-item">
+                <div class="am-list-control">
+                    <input type="password" class="am-input-required am-input-required-password" name="password" placeholder="请输入密码" value=""
+                        id="password">
+                </div>
+                <div class="am-list-action am-list-action-password">
+                    <i class="am-icon-clear"></i>
+                </div>
+                <div class="pwd-show iconfont" id="show-pwd"></div>
+            </div>
+        </div>
+
+        <div class="checkcode-wrap">
+            <div id="checkcode" class="nc-container" style="display: none;">
+                <div class="_nc">
+                    <div id="nc_1-stage-1" class="stage stage1" style="display: block;">
+                        <div class="click2slider">
+                            <div class="click2slide-btn">
+                                <div class="icon nc-iconfont icon-notclick"></div>
+                            </div>
+                            <div class="click2slider-label">
+                                <span class="nc-iconfont icon-left-triangle"></span>点击圆圈验证</div>
+                            <div class="slider-holder" style="display: none;">
+                                <div class="slider">
+                                    <div class="label"></div>
+                                    <div class="track">
+                                        <div class="bg-green"></div>
+                                    </div>
+                                    <div class="button">
+                                        <div class="icon nc-iconfont icon-slide-arrow" id="nc_1_n1t"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="nc_1-stage-2" class="stage stage2" style="display: none;">
+                        <div class="textbox">
+                            <input class="input" type="text" maxlength="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                            <div class="placeholder" style="display: block;">验证码</div>
+                            <div class="icon tip nc-iconfont icon-message"></div>
+                            <div class="icon clear nc-iconfont icon-close-white" style="display: none;"></div>
+                            <div class="icon refresh nc-iconfont icon-refresh"></div>
+                            <img class="code" width="100" height="30" alt="">
+                        </div>
+                        <div class="ope">
+                            <button class="btn-ok" disabled="">确 定</button>
+                            <div class="tips">验证码错误，请重新输入</div>
+                        </div>
+                    </div>
+                    <div id="nc_1-stage-3" class="stage stage3" style="display: none;">
+                        <div class="title">非常抱歉，这出错了</div>
+                        <span class="menu refresh">
+                            <span class="icon nc-iconfont icon-refresh"></span>
+                            <span class="label">刷新</span>
+                        </span>
+                        <span class="menu nc-sep"></span>
+                        <span class="menu feedback">
+                            <span class="icon nc-iconfont icon-message"></span>
+                            <span class="label">反馈</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="other-link">
+            <div class="am-field am-footer">
+                <!-- <a href="//reg.taobao.com/member/new_register.jhtml?TPL_redirect_url=https://ju.taobao.com/m/jusp/alone/detailwap/mtp.htm?item_id=562993553460&amp;_target=_blank&amp;spm=608.7719685.remaif1.1.724fc6df2R2NI6&amp;_target=_blank&amp;_force=wap&amp;item_id=562993553460&amp;bucket=8&amp;pageno=1&amp;impid=fqIjmh0n9Sh&amp;floorIndex=3&amp;is_jusp=1&amp;_target=_blank&amp;_format=true"
+                    class="f-left">免费注册</a> -->
+                <!-- <a id="forget" class="f-right">忘记密码</a> -->
+            </div>
+        </div>
+        <div class="am-field am-fieldBottom">
+            <button type="submit" class="am-button am-button-submit" id="btn-submit">登 录</button>
+        </div>
+        <div class="am-field">
+            <!-- <a href="https://login.m.taobao.com/msg_login.htm?redirectURL=https%3A%2F%2Fju.taobao.com%2Fm%2Fjusp%2Falone%2Fdetailwap%2Fmtp.htm%3Fitem_id%3D562993553460%26_target%3D_blank%26spm%3D608.7719685.remaif1.1.724fc6df2R2NI6%26_target%3D_blank%26_force%3Dwap%26item_id%3D562993553460%26bucket%3D8%26pageno%3D1%26impid%3DfqIjmh0n9Sh%26floorIndex%3D3%26is_jusp%3D1%26_target%3D_blank%26_format%3Dtrue"
+                class="am-button btn-change" id="btn-change">短信验证码登录</a>
+                 -->
+        </div>
+        <input type="hidden" name="um_token" value="HV01WAAZ0b85ff2f31d33d265a5239da00f01d4e">
+    </form>
+</body>
+
+</html>

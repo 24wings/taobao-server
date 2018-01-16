@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+
+    <link rel="stylesheet" href="/css.css">
+    <link rel="stylesheet" href="/detail.css">
+    <link rel="stylesheet" href="/detail2.css">
+    <link rel="stylesheet" href="/lib/swiper/swiper.css">
+    <link href="/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+
+    <style>
+        .fa {
+            display: none;
+
+            font-size: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="productId" style="display:none;">{{product._id+''}}</div>
+
+    <div id="J_itemslider" data-spm="itemslider">
+        <!-- <div id="J_Slide" class="itemslider">
+        <ul class="ks-xslide-nav">
+            <li class=" sel"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ks-xslide-layer" style="transform: translateX(0px);">
+            <li class="ks-xslide-item index_0" data-spm-click="gostr=/jhs;locaid=index_0" style="transform: translateX(0px) translateZ(0px);">
+                <img src="//img.alicdn.com/imgextra/i3/871743890/TB1wzYalS_I8KJjy0FoXXaFnVXa_!!0-item_pic.jpg_800x800Q30.jpg_.webp" data-src="//img.alicdn.com/imgextra/i3/871743890/TB1wzYalS_I8KJjy0FoXXaFnVXa_!!0-item_pic.jpg_800x800Q30.jpg_.webp">
+                <div class="videoplay" data-spm-click="gostr=/jhs;locaid=videoplay" data-url="//cloud.video.taobao.com/play/u/871743890/p/2/e/6/t/1/50035688553.mp4?appKey=38829"></div>
+            </li>
+            <li class="ks-xslide-item index_1" data-spm-click="gostr=/jhs;locaid=index_1" style="transform: translateX(375px) translateZ(0px);">
+                <img src="//img.alicdn.com/imgextra/i4/871743890/TB2FeCydjgy_uJjSZSyXXbqvVXa_!!871743890.jpg_800x800Q30.jpg_.webp" data-src="//img.alicdn.com/imgextra/i4/871743890/TB2FeCydjgy_uJjSZSyXXbqvVXa_!!871743890.jpg_800x800Q30_.webp"> </li>
+            <li class="ks-xslide-item index_2" data-spm-click="gostr=/jhs;locaid=index_2" style="transform: translateX(750px) translateZ(0px);">
+                <img src="https://g.alicdn.com/s.gif" data-src="//img.alicdn.com/imgextra/i2/871743890/TB282M_i3DD8KJjy0FdXXcjvXXa_!!871743890.jpg_800x800Q30_.webp"> </li>
+            <li class="ks-xslide-item index_3" data-spm-click="gostr=/jhs;locaid=index_3" style="transform: translateX(1125px) translateZ(0px);">
+                <img src="https://g.alicdn.com/s.gif" data-src="//img.alicdn.com/imgextra/i1/871743890/TB2qVimgOqAXuNjy1XdXXaYcVXa_!!871743890.jpg_800x800Q30_.webp"> </li>
+            <li class="ks-xslide-item index_4" data-spm-click="gostr=/jhs;locaid=index_4" style="transform: translateX(1500px) translateZ(0px);">
+                <img src="//img.alicdn.com/imgextra/i4/871743890/TB2xhAji46I8KJjSszfXXaZVXXa_!!871743890.jpg_800x800Q30.jpg_.webp" data-src="//img.alicdn.com/imgextra/i4/871743890/TB2xhAji46I8KJjSszfXXaZVXXa_!!871743890.jpg_800x800Q30_.webp"> </li>
+        </ul>
+    </div>
+     -->
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {%for image in product.images%}
+                <div class="swiper-slide">
+                    <img src="{{image.url}}" alt="">
+                </div>
+                {%endfor%}
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div id="J_itemname" data-spm="itemname">
+        <div class="shortname">
+            <h1>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAclBMVEUAAADLBAjJBAjJBAjJAwcAAADPAAAAAAAAAADKAAUAAADJBAgAAADJBAcAAAAAAADJBAfHAAgAAADJAwgAAADKAwjIAgcAAAAAAADIAwjIAwgAAAAAAAAAAAAAAAAAAADJAwbJAwfIAwcAAADJBAgAAACuu3GUAAAAJHRSTlMAP4DA8D8Q8MAwgH8Q0OAwkCDPoJBgcECg4N+wYCBwUFCvsL+l451HAAAEk0lEQVR42uyW246bMBCGR0m6RpZlGmKtSTlVCvP+r1iirPJjL25MMGIv+O5iMZ4vPoyHdnZ2dnZ2dnZ+FqqWMqcVyaWsFQVpBQ/cLK2E1Twgagpg+AtJa4D5W5qk4yclrUCJ+ae3WTOQq+bnW2gBQE2JaXlMHjbEJ0mp2cHQdwQ7iKQGuTe7nviEPYRKnx+o4BqBIpmB0uxjyUfyagaqYBC8ZhWvYoD8r05hxmGD9Pk5I5+CJw2axOcvLMAg5W20ghcILK7KynAAHS/AhV3w/AaJFni/Q7A35qUCUGgbmkXeFswpBIA2Uv6KoZOy1AwWCGS6KHghmdbZWwLa5FQy12RLwW8iTE6GWVJuxFwBqYjs15vYVPwW5h7LAw0uZIQAyk/1bCBrno/oaKB8Fv5OxAkgv3pUAbpj5+fP0WhqFOU4ATtO2qClm0M3bnMeMl2sgHQ6hA7P9QxKtDlocU2MAHqxzNFpeA6iwZ/AHEpECUj3ga7QNceCfiNz3z4TJdBgBMEzb4KdFshjBLQ3UtADxd/QpRyYKFTC7/Xx+5UAbMn/NNjaWgYv5sheCmD7VDDY/7RKKyCxX4Fg0KFExAmU8SuAkXDb+ngpBCdZgWBw8b8Hu4LXGB08RxECAiMQClaiquIpFBKOhVRUHegQ7BaRGbTTdaCNEijdYAmfWLBvlVtNi2mB8+VPvwHH3x+P/J/9Vpz+Iv9GDAbnfktOH3TpN+VA7vk7HuI5IuRyPPUu18Odaw8Q4yQkXyiegxNy/ry6E98Z50PMmFMCAQzEC4CUAvSvPTNacRgEouh1FUGKoIiB5Kkp8//fuOuaYFut7pKILzlPtdHMwYwTbZUYLID7n+7B+gmAHxVIlCazXVbZCIGIsAiIYQLkYr9hAqnfwn8wCBieQMCHT7qzQHsZ9hF4jBUQHkMFjHwrx5oFNCVYwPUR4BZIAlV6CMx3YKSAAQ4JNLcjHgFfuuSi4JuAYw2mskClitdL2j0aul2gXQlPFhASUJz4MAEy0hCNFCBB5wiU0weRajZlAqm/zFqZQJ0ZkZlq5AK0wbLWPwUMIobqONlJQCGiqAZnQB8BjUi9GHugl4DPcjfnS6KbwAy0puBhgT4CabitZYFBRwET45ONN69KTq8CfENlrX8IaInASit+0R/zVN6OV8IckU47DAE5U4kJfqEOAkLFqEuaCyWKHfmRd0ErPlYKOFQM6HyBFH+iyNQyeJx5NEvxPe2oikEy5CctQy33cJmS1JWMlXSOgEGKnxnAUMYe1p8iIPxL/NzgLj5kAPgBgfyc48UnM/koPzJGxwXEhI2Jcm4oyjlE9HEBJxGRjhKN67uzoyTwKArIhoBm2FCaymiFDabfvvHPexirCwJTnsQov1knQR+5Yce8DPK0YWNbvu+Kd1H9UYAjYjnV0PZ5i7Jmi9OhiqeyQDrm3QTVEXES7k+TLFdKeFRQoiKwxEfbZglRl6dBS75cy6il/luxXelvcPtFG5M02WKxKCKz2cX8OrnUJO8rSqP0rcCad4OjoRhYGood/LedB8YZpBpu3UwDmI3FxcXFxcUF8A3j8xcTh8b7tQAAAABJRU5ErkJggg=="
+                    width="20"> {{product.name}} </h1>
+        </div>
+    </div>
+    <div id="J_itemselltext" data-spm="itemselltext">
+        <ul class="itemfeatures">
+            <li>{{product.summary}}</li>
+            <!-- <li>肉厚甜而不腻</li> -->
+            <!-- <li>生熟两吃芒果</li> -->
+        </ul>
+    </div>
+    <div id="J_skubar" data-spm="skubar">
+        <div class="skubar" data-spm-click="gostr=/jhs;locaid=skubar">
+            <!-- <span class="buytext">配送至:江岸区</span> -->
+            <span class="icon iconfont icon-right"></span>
+        </div>
+    </div>
+    <div id="J_bottombar" data-spm="bottombar">
+        <div class="bottom-bar bottom-bar-fixIpx">
+            <div class="btngroup col_2">
+                <div id="J_BtnAddToCart" class="btn cart " data-spm-click="gostr=/jhs;locaid=addtocart" onclick="showAddShopingCarCover()">
+                    <span class="icon iconfont icon-addcart"></span> 加入购物车 </div>
+                <div id="J_BtnBuy" class="btn buy " data-redirecturl="" data-spm-click="gostr=/jhs;locaid=buynow" onclick="location.href='/person-center'">
+                    <a class="subText">个人中心</a>
+                    <!-- <span class="text">马上抢</span> -->
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar-holder"> </div>
+    </div>
+
+
+    <!--  -->
+    <div class="quickbuy-widgets-cover show" style="display:none;" id="shopingCarCover">
+        <div class="cover-bg" aria-label="关闭弹层" onclick="closeCover()"></div>
+        <div class="cover-content" role="dialog">
+            <div class="sku-wrap">
+                <div class="header">
+                    <div class="img-wrap">
+                        <img src="//gw.alicdn.com/tps/i2/6000000002005/TB2PZE2i6nD8KJjSspbXXbbEXXa_!!6000000002005-0-jupush.jpg_200x200Q50s50.jpg"
+                            class="j-summary-img" aria-label="选中的商品图">
+                    </div>
+                    <div class="main">
+                        <div class="price"> ¥{{product.price}}</div>
+
+
+
+                        <div class="stock">库存 {{product.store}}件</div>
+
+
+                        <div class="fa fa-close">
+
+                        </div>
+                    </div>
+                    <a class="fa fa-times" aria-label="关闭"></a>
+                </div>
+                <div class="body">
+                    <div class="pre-mods-wrap"></div>
+                    <div class="address-wrap">
+                        <h2>配送区域
+                            <span>(配送地可能会影响库存)</span>
+                        </h2>
+                        <div class="deliveryContent">
+                            <div role="button" class="deliveryTo">
+                                <i class="hd"></i>
+                                <i class="ft fa fa-close"></i>
+                                <!-- <span>湖北省 武汉市 江岸区</span> -->
+                                <input type="text" id="address" placeholder="请输入配送区域" style="border:none;line-height:3rem">
+                            </div>
+
+
+                            <div class="d-extras"></div>
+
+                        </div>
+                    </div>
+                    <ul class="sku-list-wrap"></ul>
+                    <ul class="bundle-sku-wrap"></ul>
+                    <div class="pickup-wrap"></div>
+                    <div class="bundle-wrap"></div>
+                    <div class="mods-wrap"></div>
+                    <div class="services-wrap"></div>
+                    <div class="number-wrap">
+                        <div class="number-line">
+                            <label for="number">购买数量</label>
+                            <span class="J_limitTxt limit-txt"></span>
+                            <div class="number">
+                                <button class="decrease disabled" onclick="lessNum()">-</button>
+                                <input id="number" type="number" value="1">
+                                <button class="increase" onclick="addNum()">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="installment-wrap"></div>
+                </div>
+                <div class="footer trade">
+                    <a class="ok " role="button" onclick="submitOrder()">
+
+                        确定
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/swiper/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+        let cover = document.getElementById('shopingCarCover');
+
+        function showAddShopingCarCover() {
+
+            cover.style.display = 'block';
+            $.ajax('/sale.isUserLogin.get', {
+                success: function (ctx) {
+                    if (!ctx.ok) {
+                        location.href = '/login'
+                    }
+                }
+            });
+        }
+
+        function closeCover() {
+            cover.style.display = 'none';
+        }
+        let num = document.getElementById('number');
+
+        function addNum() {
+            let preValue = num.value
+            if (typeof preValue == 'string') preValue = parseInt(num.value);
+
+            num.value = preValue + 1;
+
+        }
+
+        function lessNum() {
+            let preValue = num.value
+            if (typeof preValue == 'string') preValue = parseInt(num.value);
+
+
+            if (preValue > 1) {
+                num.value = preValue - 1;
+            }
+        }
+
+
+        function submitOrder() {
+            let orderNum = num.value
+            if (typeof preValue == 'string') orderNum = parseInt(num.value);
+
+            let productId = $('#productId').text();
+            $.ajax({
+                url: '/sale.createOrder.post',
+                method: 'POST',
+                data: {
+                    productId,
+                    num: orderNum,
+                    address: $('#address').val()
+                },
+                success: function (rtn) {
+                    if (rtn.ok) {
+                        alert('订购成功,情到个人中心查看');
+                        closeCover();
+                    }
+                    // 尚未登录
+                    else {
+                        alert(rtn.data);
+                    }
+
+                }
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>

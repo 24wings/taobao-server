@@ -1,0 +1,168 @@
+{% macro unconfirmOrder(order) %}
+<li>
+    <div class="module 1053949147366334471 storage" id="storage2"></div>
+    <div class="module 1053949147366334471 checkBox" id="checkBox3"></div>
+    <div class="module 1053949147366334471 seller" id="seller3">
+        <div class="o-t-title-shop">
+            <div class="tcont">
+                <div class="ico">
+                    <img src="//img.alicdn.com/tps/i1/TB1PsTiHVXXXXcXXXXXsYU.HpXX-55-64.png">
+                </div>
+                <div class="contact">
+                    <a href="//shop.m.taobao.com/shop/shop_index.htm?user_id=143813255">
+                        <p class="title">{{order.product.name}}</p>
+                        <p class="arrow">
+                            <span class="icon-right"></span>
+                        </p>
+                    </a>
+                </div>
+                <div class="state">
+                    <div class="state-cont">
+                        <p class="h">等待买家确认</p>
+                        <p class="gray"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471 status" id="status4">
+        <div class="seller-state  isbg" style="background:  #ff7e00   ">
+            <div class="state-cont">
+                <p class="h">等待买家确认</p>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471_1 item" id="item5">
+        <div class="item-list o-t-item">
+            <div class="item-img">
+                <p>
+                    <img class="" src="{{order.product.images[0].url}}"> </p>
+            </div>
+            <div class="item-info">
+                <h3 class="title">{{order.product.name}} </h3>
+                <p class="sku"></p>
+            </div>
+            <div class="item-pay">
+                <div class="item-pay-data">
+                    <p class="price">￥{{order.product.price}}</p>
+                    <p class="price">
+                        <del class="">￥{{order.product.price * order.num}}</del>
+                    </p>
+                    <p class="nums">x1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471 pay" id="pay6">
+        <div class="o-total-price">
+            <div class="cont">
+                <span>共
+                    <b>{{order.num}}</b>件商品</span>
+                <span>合计:
+                    <b>￥{{order.num * order.product.price}}</b>
+                </span>
+                <span>(含运费
+                    <b>￥0.00</b>)</span>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471 orderop" id="orderop7">
+        <div class="o-tab-btn">
+            <ul>
+                <li class="h" name="pay" data-id="" onclick="showConfirmModal();selectedConfirmOrder='{{order._id.toString()}}'"> 确认订购 </li>
+                <li class="" name="cancelOrder" data-id="" onclick="showCancelModal();selectedCancelOrder='{{order._id.toString()}}' "> 取消订单 </li>
+                <li class="" name="talkww" data-id=""> 联系卖家 </li>
+                <!-- <li class="more">更多</li> -->
+                <ul class="sublist" style="display:none">
+                    <li class="" name="helpPay" data-id=""> 朋友代付 </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</li>
+
+{% endmacro %} {%macro sendProduct(order)%}
+
+
+<li>
+    <div class="module 1053949147366334471 storage" id="storage2"></div>
+    <div class="module 1053949147366334471 checkBox" id="checkBox3"></div>
+    <div class="module 1053949147366334471 seller" id="seller3">
+        <div class="o-t-title-shop">
+            <div class="tcont">
+                <div class="ico">
+                    <img src="//img.alicdn.com/tps/i1/TB1PsTiHVXXXXcXXXXXsYU.HpXX-55-64.png">
+                </div>
+                <div class="contact">
+                    <a href="//shop.m.taobao.com/shop/shop_index.htm?user_id=143813255">
+                        <p class="title">{{order.product.name}}</p>
+                        <p class="arrow">
+                            <span class="icon-right"></span>
+                        </p>
+                    </a>
+                </div>
+                <div class="state">
+                    <div class="state-cont">
+                        <p class="h">等待卖家发货</p>
+                        <p class="gray"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471 status" id="status4">
+        <div class="seller-state  isbg" style="background:  #ff7e00   ">
+            <div class="state-cont">
+                <p class="h">等待卖家发货</p>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471_1 item" id="item5">
+        <div class="item-list o-t-item">
+            <div class="item-img">
+                <p>
+                    <img class="" src="{{order.product.images[0].url}}"> </p>
+            </div>
+            <div class="item-info">
+                <h3 class="title">{{order.product.name}} </h3>
+                <p class="sku"></p>
+            </div>
+            <div class="item-pay">
+                <div class="item-pay-data">
+                    <p class="price">￥{{order.product.price}}</p>
+                    <p class="price">
+                        <del class="">￥{{order.product.price * order.num}}</del>
+                    </p>
+                    <p class="nums">x1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471 pay" id="pay6">
+        <div class="o-total-price">
+            <div class="cont">
+                <span>共
+                    <b>{{order.num}}</b>件商品</span>
+                <span>合计:
+                    <b>￥{{order.num * order.product.price}}</b>
+                </span>
+                <span>(含运费
+                    <b>￥0.00</b>)</span>
+            </div>
+        </div>
+    </div>
+    <div class="module 1053949147366334471 orderop" id="orderop7">
+        <!-- <div class="o-tab-btn">
+            <ul>
+                <li class="h" name="pay" data-id="" onclick="showConfirmModal();selectedConfirmOrder='{{order._id.toString()}}'"> 确认订购 </li>
+                <li class="" name="cancelOrder" data-id="" onclick="showCancelModal();selectedCancelOrder='{{order._id.toString()}}' "> 取消订单 </li>
+                <li class="" name="talkww" data-id=""> 联系卖家 </li>
+                <!-- <li class="more">更多</li> --
+                <ul class="sublist" style="display:none">
+                    <li class="" name="helpPay" data-id=""> 朋友代付 </li>
+                </ul>
+            </ul>
+        </div> -->
+    </div>
+</li>
+{% endmacro %}

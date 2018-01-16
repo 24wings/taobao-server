@@ -1,0 +1,239 @@
+{%include 'macro/order-state.html' %}
+<!DOCTYPE html>
+<html lang="en" data-dpr="1" style="font-size: 37.5px;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="//g.alicdn.com/mtb/ctrl-selectmenu/0.1.6/selectmenu.css?v=2106967556_1737">
+    <link rel="stylesheet" href="//g.alicdn.com/mtb/lib-notification/0.2.1/notification.css?v=2727251887_3030">
+    <link rel="stylesheet" href="/css/order.css">
+    <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+
+    <style>
+        [data-ctrl-name=scrollview] {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex
+        }
+
+        [data-ctrl-name=scrollview][data-direction=vertical] {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -moz-box-orient: vertical;
+            -moz-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+
+        [data-ctrl-name=scrollview][data-direction=horizontal] {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -moz-box-orient: horizontal;
+            -moz-box-direction: normal;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row
+        }
+
+        [data-ctrl-name=scrollview] .scroll-wrap {
+            display: block;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            overflow: hidden;
+            position: relative
+        }
+
+        [data-ctrl-name=scrollview][data-direction=vertical] .scroll-wrap,
+        [data-ctrl-name=scrollview][data-direction=vertical] .scroll-content {
+            width: 100%
+        }
+
+        [data-ctrl-name=scrollview][data-direction=horizontal] .scroll-wrap,
+        [data-ctrl-name=scrollview][data-direction=horizontal] .scroll-content {
+            height: 100%
+        }
+
+        [data-ctrl-name=scrollview] .scroll-content {
+            position: absolute
+        }
+    </style>
+</head>
+
+<body data-spm="7756461" data-ctrl-name="pageview" data-ctrl-id="1515352289072-1" style="font-size: 36px; padding-bottom: 211px;">
+    <div class="order-manage list">
+        <div data-ctrl-name="scrollview" data-ctrl-id="1515353172686-1" data-direction="vertical">
+            <div class="top-fixed" style="left: 0px; top: 0px; width: 100%; display: block;">
+                <header class="header">
+                    <div class="back" onclick="location.href='/'">
+                        <p>
+                            <span class="icon-back"></span>
+                        </p>
+                    </div>
+                    <div class="title">订单管理</div>
+                    <div>
+                        <p></p>
+                    </div>
+                </header>
+                <div class="nav-tab-top">
+                    <ul>
+                        <li {%if !mode %} class="cur" {%endif%} data-code="all">
+                            <a href="/order"> 全部</a>
+                        </li>
+                        <li data-code="waitPay" {%if mode=='unconfirm' %} class="cur" {%endif%}>
+                            <a href="/order?mode=unconfirm"> 待确认</a>
+                        </li>
+                        <li data-code="waitSend" {%if mode=='sendProduct' %} class="cur" {%endif%}>
+                            <a href="/order?mode=sendProduct"> 待发货</a>
+                        </li>
+                        <li data-code="waitConfirm" {%if mode=='finish' %} class="cur" {%endif%}>
+                            <a href="/order?mode=finish"> 已完结</a>
+                        </li>
+                        <!-- <li data-code="waitRate" class="">待评价</li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="scroll-wrap" style="height: 100vh;overflow-y: scroll;">
+                <div class="scroll-content" style="height: 6565.72px; transform: translate3d(0px, 0px, 0px);">
+                    <section class="order-cont btomshow" data-code="all" style="">
+                        <div class=" order" id="order1">
+                            <ul class="order-list">
+                                {% for order in orders%} {%if order.state== FruitOrderState.UnConfirm%} {{unconfirmOrder(order)}} {%endif%} {%if order.state==
+                                FruitOrderState.SendProduct%} {{sendProduct(order)}} {%endif%} {%if order.state== FruitOrderState.Finish%}
+                                {{unconfirmOrder(order)}} {%endif%} {%endfor%}
+
+
+                            </ul>
+                        </div>
+                        <div class="order-more"></div>
+                    </section>
+                </div>
+
+
+            </div>
+            <div class="force-repaint" style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px; font-size: 0px; opacity: 1;"></div>
+            <div class="bottom-fxied" style="left: 0px; bottom: 0px; width: 100%; display: block;"></div>
+        </div>
+
+        <!-- 取消订单 -->
+        <div data-ctrl-name="selectmenu" data-ctrl-id="1515356378457-1" class="ctrl-selectmenu" style="height: 812px; opacity: 1; visibility: visible;display:none;"
+            id="cancelModal">
+            <div class="ctrl-selectmenu-picker" style="transform: translateY(0px);">
+                <div class="ctrl-selectmenu-header">
+                    <a href="javascript:void(0);" class="ctrl-selectmenu-btn-cancel" onclick="hideCancelModal()">取消</a>
+                    <span class="tip">取消订单</span>
+                    <a href="javascript:void(0);" class="ctrl-selectmenu-btn-confirm" onclick="cancelOrder()">确定</a>
+                </div>
+                <div class="ctrl-selectmenu-wrapper">
+                    <div class="ctrl-selectmenu-col" data-type="code">
+                        <div class="scroller" style="height: 200px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="ctrl-selectmenu-option current" data-value="1">我不想买了</div>
+                            <!-- <div class="ctrl-selectmenu-option" data-value="2">信息填写错误，重新拍</div>
+                            <div class="ctrl-selectmenu-option" data-value="3">卖家缺货</div>
+                            <div class="ctrl-selectmenu-option" data-value="4">同城见面交易</div>
+                            <div class="ctrl-selectmenu-option" data-value="5">其他原因</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 确认订单 -->
+        <div data-ctrl-name="selectmenu" data-ctrl-id="1515356378457-1" class="ctrl-selectmenu" style="height: 812px; opacity: 1; visibility: visible;display:none;"
+            id="confirmModal">
+            <div class="ctrl-selectmenu-picker" style="transform: translateY(0px);">
+                <div class="ctrl-selectmenu-header">
+                    <a href="javascript:void(0);" class="ctrl-selectmenu-btn-cancel" onclick="hideConfirmModal()">取消</a>
+                    <span class="tip">取消订单</span>
+                    <a href="javascript:void(0);" class="ctrl-selectmenu-btn-confirm" onclick="confirmOrder()">确定</a>
+                </div>
+                <div class="ctrl-selectmenu-wrapper">
+                    <div class="ctrl-selectmenu-col" data-type="code">
+                        <div class="scroller" style="height: 200px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="ctrl-selectmenu-option current" data-value="1">确认订购?</div>
+                            <!-- <div class="ctrl-selectmenu-option" data-value="2">信息填写错误，重新拍</div>
+                            <div class="ctrl-selectmenu-option" data-value="3">卖家缺货</div>
+                            <div class="ctrl-selectmenu-option" data-value="4">同城见面交易</div>
+                            <div class="ctrl-selectmenu-option" data-value="5">其他原因</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // let cancelModal = document.getElementById('cancelModal');
+        // cancelModal.style.display = 'none';
+        var selectedCancelOrder;
+        var selectedConfirmOrder;
+        let cancelModal = document.getElementById('cancelModal');
+        let confirmModal = document.getElementById('confirmModal');
+
+        // selectedCancelOrder
+        /*未确认的订单  取消 */
+        function showCancelModal(orderId) {
+            cancelModal.style.display = 'block';
+
+
+        }
+
+        function hideCancelModal() {
+            cancelModal.style.display = 'none';
+        }
+
+        function showConfirmModal() {
+            confirmModal.style.display = 'block';
+        }
+
+        function hideConfirmModal() {
+            confirmModal.style.display = 'none';
+        }
+
+        function confirmOrder() {
+            $.ajax({
+                url: '/sale.confirmOrder.post',
+                method: 'post',
+                data: {
+                    orderId: selectedConfirmOrder
+                },
+                success: function (rtn) {
+                    alert(rtn.data);
+                    location.reload();
+                }
+            })
+            console.log(selectedConfirmOrder);
+            hideConfirmModal();
+        }
+
+        /* 未确认订单  确认*/
+        function cancelOrder() {
+            console.log(selectedCancelOrder);
+            $.ajax({
+                url: '/sale.cancelOrder.del?orderId=' + selectedCancelOrder,
+                method: 'delete',
+                success: function (rtn) {
+                    alert(rtn.data);
+
+                    // window.location.reload();
+                }
+            })
+            cancelModal.style.display = 'none';
+
+        }
+    </script>
+
+</body>
+
+</html>
