@@ -2,8 +2,9 @@ import koa = require('koa');
 
 /**管理员 */
 export let checkAdminLogin: koa.Middleware = async (ctx, next) => {
-    let admin = (ctx.session as any).fruitAdmin;
+    let admin = (ctx.session as any).admin;
     console.log(ctx.session);
+
     console.log('管理员:`', admin)
     if (admin) {
         await next();

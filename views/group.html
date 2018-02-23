@@ -1,0 +1,151 @@
+{%extends './layout.html'%} {%block style%}
+<style>
+    .menu-bar {
+        margin-top: 50px;
+    }
+
+    .menu {
+        display: inline-block;
+    }
+
+    .menu li {
+        display: inline-block;
+    }
+
+    .nav {
+        background: transparent !important;
+        color: #000;
+    }
+
+    a {
+        color: #000;
+    }
+
+    .active {
+        padding: 5px;
+        background: #3399ff !important;
+    }
+
+    .active2 {
+        color: #000;
+        font-size: 1.5rem;
+    }
+
+    .active2 a {
+        color: red
+    }
+</style>
+
+{%endblock%} {%block content%}
+
+<!-- <ul class="nav nav-pills menu-bar">
+    <li>分类</li>
+    {%for group in groups%}
+    <li {%if group._id==groupId%} class="active2" {%endif%}>
+        <a href=""> {{group.name}}</a>
+    </li> {%endfor%}
+
+</ul> -->
+
+<div class="headerbg menu-bar">
+    <div class="header mid">
+
+        <div class="header_menu left">
+            <a style="float:left;">全部</a>
+            {%for group in groups%}
+            <a href="/group?groupId={{group._id+''}}" {%if group._id==groupId%}class="active" {%endif%} style="float:left;">{{group.name}}</a>
+            {%endfor%}
+
+
+
+
+        </div>
+    </div>
+</div>
+<div id="wrapper">
+
+    <div id="videoswrap">
+        <ul id="videos">
+            {%for resource in resources%}
+            <li>
+                <a href="{{resource.video.url}}" class="video_link">
+                    <img src="{{resource.thumb.url}}" width="218" height="148" alt="tour" style="margin-bottom:4px">
+                </a>
+            </li>
+            {%endfor%}
+
+        </ul>
+    </div>
+
+</div>
+<p style="text-align:center; font-size:12px;">&nbsp;</p>
+<div style="display:none;">
+    <script src="http://s20.cnzz.com/stat.php?id=3992412&amp;web_id=3992412&amp;show=pic" language="JavaScript"></script>
+    <script src="http://c.cnzz.com/core.php?web_id=3992412&amp;show=pic&amp;t=z" charset="utf-8" type="text/javascript"></script>
+    <a href="http://www.cnzz.com/stat/website.php?web_id=3992412" target="_blank" title="站长统计">
+        <img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/img/pic.gif">
+    </a>
+
+
+</div>
+<div id="fancy_overlay" style="opacity: 0.6; display: none;"></div>
+<div id="fancy_wrap">
+    <div class="fancy_loading" id="fancy_loading" style="display: none;">
+        <div></div>
+    </div>
+    <div id="fancy_outer" style="left: 783.5px; top: 51.3906px; width: 218px; height: 148px; display: none;">
+        <div id="fancy_inner">
+            <div id="fancy_close" style="display: none;"></div>
+            <div id="fancy_bg">
+                <div class="fancy_bg fancy_bg_n"></div>
+                <div class="fancy_bg fancy_bg_ne"></div>
+                <div class="fancy_bg fancy_bg_e"></div>
+                <div class="fancy_bg fancy_bg_se"></div>
+                <div class="fancy_bg fancy_bg_s"></div>
+                <div class="fancy_bg fancy_bg_sw"></div>
+                <div class="fancy_bg fancy_bg_w"></div>
+                <div class="fancy_bg fancy_bg_nw"></div>
+            </div>
+            <a href="javascript:;" id="fancy_left" style="display: none;">
+                <span class="fancy_ico" id="fancy_left_ico"></span>
+            </a>
+            <a href="javascript:;" id="fancy_right" style="display: none;">
+                <span class="fancy_ico" id="fancy_right_ico"></span>
+            </a>
+            <div id="fancy_content" style="top: 10px; right: 10px; bottom: 10px; left: 10px; width: auto; height: auto;">
+                <div>
+                    <video id="selectedVideo"></video>
+                </div>
+            </div>
+            <div id="fancy_title" style="display: none;">
+                <table cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="fancy_title" id="fancy_title_left"></td>
+                            <td class="fancy_title" id="fancy_title_main">
+                                <div></div>
+                            </td>
+                            <td class="fancy_title" id="fancy_title_right"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#videos a").fancybox({
+            'width': '75%',
+            'height': '75%',
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'type': 'iframe'
+        });
+        $("a#example1").fancybox({
+            'titleShow': false
+        });
+    })
+</script>
+{%endblock%}

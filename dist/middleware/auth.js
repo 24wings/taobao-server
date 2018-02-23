@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 /**管理员 */
 exports.checkAdminLogin = (ctx, next) => __awaiter(this, void 0, void 0, function* () {
-    let admin = ctx.session.fruitAdmin;
+    let admin = ctx.session.admin;
     console.log(ctx.session);
     console.log('管理员:`', admin);
     if (admin) {

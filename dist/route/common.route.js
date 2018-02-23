@@ -37,7 +37,7 @@ commonRouter
     ctx.body = { ok: true, data: base64 };
 }))
     .post('/api.rest.go', (ctx, next) => __awaiter(this, void 0, void 0, function* () {
-    console.log(ctx.request.body, "======================");
+    //   console.log(ctx.request.body,"======================");
     let { model, type, query, skip, limit, populate, sort, newObject, updateObject } = ctx.request.body;
     let table = db[model];
     if (!model) {

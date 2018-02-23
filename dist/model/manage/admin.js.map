@@ -1,1 +1,0 @@
-{"version":3,"file":"admin.js","sourceRoot":"D:/code/server/src/","sources":["model/manage/admin.ts"],"names":[],"mappings":";;AAAA,qCAAsC;AAEtC,IAAI,WAAW,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC,EAAE,KAAK,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,EAAE,CAAC,CAAC;AAQlF,QAAA,UAAU,GAAG,QAAQ,CAAC,KAAK,CAAQ,OAAO,EAAE,WAAW,CAAC,CAAC"}
