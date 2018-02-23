@@ -85,7 +85,7 @@ export class Crawl {
     return hrefs;
   }
 
-  private Get(url: string): Promise<string> {
+  private Get(url: string, retry = 3): Promise<string> {
     return new Promise(resolve => {
       let request = http.get(url, res => {
         console.log(`STATUS: ${res.statusCode}`);
@@ -94,6 +94,13 @@ export class Crawl {
         let data = "";
         res.on("data", chunk => {
           data += chunk;
+        });
+        res.on("error", async () => {
+          if (retry > 0) {
+            retry--;
+            let html = await this.Get(url, retry);
+            resolve(html);
+          }
         });
         res.on("end", () => {
           resolve(data);

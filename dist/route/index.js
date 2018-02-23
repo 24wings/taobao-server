@@ -10,7 +10,9 @@ var admin_route_1 = require("./admin.route");
 exports.adminRouter = admin_route_1.adminRouter;
 var ttsy_route_1 = require("./ttsy.route");
 exports.ttsyRouter = ttsy_route_1.ttsyRouter;
+var crawler_route_1 = require("./crawler.route");
+exports.crawlerRouter = crawler_route_1.crawlerRouter;
 // export { fruitRouter } from './fruit.route';
 // export { fruitClientRouter } from './fruit-client.route';
-// export { saleRouter } from './sale.route'; 
+// export { saleRouter } from './sale.route';
 //# sourceMappingURL=index.js.map

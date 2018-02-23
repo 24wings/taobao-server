@@ -90,7 +90,7 @@ class Crawl {
         });
         return hrefs;
     }
-    Get(url) {
+    Get(url, retry = 3) {
         return new Promise(resolve => {
             let request = http.get(url, res => {
                 console.log(`STATUS: ${res.statusCode}`);
@@ -100,6 +100,13 @@ class Crawl {
                 res.on("data", chunk => {
                     data += chunk;
                 });
+                res.on("error", () => __awaiter(this, void 0, void 0, function* () {
+                    if (retry > 0) {
+                        retry--;
+                        let html = yield this.Get(url, retry);
+                        resolve(html);
+                    }
+                }));
                 res.on("end", () => {
                     resolve(data);
                 });
