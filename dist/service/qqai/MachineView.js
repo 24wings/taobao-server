@@ -104,3 +104,4 @@ MachineView.FACE_COSMETIC = "https://api.ai.qq.com/fcgi-bin/ptu/ptu_facecosmetic
 MachineView.FACE_MERGE = "https://api.ai.qq.com/fcgi-bin/ptu/ptu_facemerge";
 MachineView.FACE_DETECT = "https://api.ai.qq.com/fcgi-bin/face/face_detectface";
 exports.MachineView = MachineView;
+//# sourceMappingURL=MachineView.js.map

@@ -70,3 +70,4 @@ let cloudinaryVideoSchema = new mongoose.Schema({
     duration: Number
 });
 exports.cloudinaryVideoModel = mongoose.model('cloudinary-video', cloudinaryVideoSchema);
+//# sourceMappingURL=cloudniary-video.js.map

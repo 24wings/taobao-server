@@ -9,3 +9,4 @@ let adminSchema = new mongoose.Schema({
     createDt: { type: Date, default: Date.now },
 });
 exports.adminModel = mongoose.model('admin', adminSchema);
+//# sourceMappingURL=admin.js.map

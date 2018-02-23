@@ -56,6 +56,9 @@ for (let route in routes) {
     app.use(routes[route].allowedMethods());
     app.use(routes[route].routes());
 }
+// 微信app-secret      7d1aec534959dc79b518472d66685671
+//7d1aec534959dc79b518472d66685671
 server.listen(80, () => {
     console.log(`${new Date().toLocaleDateString()}: server is runing`);
 });
+//# sourceMappingURL=www.js.map

@@ -32,3 +32,4 @@ wechatRouter.post('/wechat/ticket', (ctx, next) => __awaiter(this, void 0, void 
     console.log('jssdk:url', ctx.request.body.url);
     console.log('jssdk:href', ctx.href);
 }));
+//# sourceMappingURL=wechat.route.js.map

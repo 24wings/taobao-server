@@ -88,3 +88,4 @@ commonRouter
         ctx.body = ctx.body ? ctx.body : data;
     }
 }));
+//# sourceMappingURL=common.route.js.map

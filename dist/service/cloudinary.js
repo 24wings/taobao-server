@@ -113,3 +113,4 @@ function deleteImage(public_id) {
     });
 }
 exports.deleteImage = deleteImage;
+//# sourceMappingURL=cloudinary.js.map

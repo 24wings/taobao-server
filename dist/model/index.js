@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://118.31.72.227:27017/tutu');
+mongoose.connect("mongodb://118.31.72.227:27017/tutu");
 // 通用
 var cloudinary_image_1 = require("./common/cloudinary-image");
 exports.cloudinaryImageModel = cloudinary_image_1.cloudinaryImageModel;
@@ -18,3 +18,7 @@ exports.resourceModel = resource_1.resourceModel;
 // banner管理
 var banner_1 = require("./banner");
 exports.bannerModel = banner_1.bannerModel;
+/// 网络爬虫
+var crawl_1 = require("./crawl");
+exports.pageModel = crawl_1.pageModel;
+//# sourceMappingURL=index.js.map

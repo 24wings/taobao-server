@@ -20,3 +20,4 @@ exports.checkAdminLogin = (ctx, next) => __awaiter(this, void 0, void 0, functio
         ctx.body = { ok: false, data: '尚未登录' };
     }
 });
+//# sourceMappingURL=auth.js.map

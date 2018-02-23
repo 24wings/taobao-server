@@ -180,3 +180,4 @@ class default_1 {
     }
 }
 exports.default = default_1;
+//# sourceMappingURL=WechatApi.js.map

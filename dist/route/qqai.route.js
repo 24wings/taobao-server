@@ -29,3 +29,4 @@ qqaiRoute.post('/api/qqai/faceMerge', (ctx, next) => __awaiter(this, void 0, voi
     let result = yield service.qqai.machineView.detectFace(image);
     ctx.body = result;
 }));
+//# sourceMappingURL=qqai.route.js.map

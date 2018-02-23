@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const auth = require("./auth");
-exports.auth = auth;
+var page_1 = require("./page");
+exports.pageModel = page_1.pageModel;
 //# sourceMappingURL=index.js.map

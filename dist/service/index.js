@@ -8,3 +8,4 @@ module.exports = {
     wechatJsApi: {},
     cloud
 };
+//# sourceMappingURL=index.js.map

@@ -7,3 +7,4 @@ module.exports = class {
         this.machineView = new MachineView_1.MachineView(this.appId, this.appKey);
     }
 };
+//# sourceMappingURL=index.js.map

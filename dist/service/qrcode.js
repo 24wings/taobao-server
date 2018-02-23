@@ -13,3 +13,4 @@ module.exports = class Qrcode {
         }
     }
 };
+//# sourceMappingURL=qrcode.js.map

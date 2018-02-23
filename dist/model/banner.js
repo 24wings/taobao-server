@@ -10,3 +10,4 @@ let bannerSchema = new mongoose.Schema({
     sort: { type: Number, default: 0 }
 });
 exports.bannerModel = mongoose.model('banner', bannerSchema);
+//# sourceMappingURL=banner.js.map

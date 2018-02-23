@@ -8,3 +8,4 @@ exports.default = new class {
         this.wechatApi = new WechatApi_1.default(this.appid, this.appiSecret);
     }
 };
+//# sourceMappingURL=index.js.map

@@ -13,3 +13,4 @@ exports.ttsyRouter = ttsy_route_1.ttsyRouter;
 // export { fruitRouter } from './fruit.route';
 // export { fruitClientRouter } from './fruit-client.route';
 // export { saleRouter } from './sale.route'; 
+//# sourceMappingURL=index.js.map

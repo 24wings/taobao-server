@@ -14,3 +14,4 @@ class SignatureLogic {
     }
 }
 exports.SignatureLogic = SignatureLogic;
+//# sourceMappingURL=SignatureLogic.js.map

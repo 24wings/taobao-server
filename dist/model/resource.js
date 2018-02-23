@@ -11,3 +11,4 @@ let resourceSchema = new mongoose.Schema({
     createDt: { type: Date, default: Date.now }
 });
 exports.resourceModel = mongoose.model('resource', resourceSchema);
+//# sourceMappingURL=resource.js.map

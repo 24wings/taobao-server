@@ -152,3 +152,4 @@ adminRouter.post('/admin.login.post', (ctx, next) => __awaiter(this, void 0, voi
     let updateAction = yield db.resourceGroupModel.findByIdAndUpdate(groupId, newGroup).exec();
     ctx.body = { ok: true, data: updateAction };
 }));
+//# sourceMappingURL=admin.route.js.map

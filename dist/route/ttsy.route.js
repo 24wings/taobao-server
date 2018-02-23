@@ -36,3 +36,4 @@ ttsyRouter.get('/', (ctx, next) => __awaiter(this, void 0, void 0, function* () 
     .get('/about', (ctx, next) => __awaiter(this, void 0, void 0, function* () {
     yield ctx.render('about');
 }));
+//# sourceMappingURL=ttsy.route.js.map

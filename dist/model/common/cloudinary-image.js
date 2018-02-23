@@ -40,3 +40,4 @@ let cloudinaryImageSchema = new mongoose.Schema({
     admin: { type: mongoose.Schema.Types.ObjectId, ref: 'admin' }
 });
 exports.cloudinaryImageModel = mongoose.model('cloudinary-image', cloudinaryImageSchema);
+//# sourceMappingURL=cloudinary-image.js.map
